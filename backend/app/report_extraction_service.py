@@ -23,11 +23,7 @@ class ReportExtractionService:
         api_key, base_url, _ = self._settings()
         if not api_key:
             raise RuntimeError("OPENAI_API_KEY is not configured in backend environment")
-        return OpenAI(
-            api_key=api_key,
-            base_url=base_url,
-            default_headers={"api-key": api_key},
-        )
+        return OpenAI(api_key=api_key, base_url=base_url)
 
     def extract_values(self, image_bytes: bytes, mime_type: str) -> tuple[ExtractedValues, float]:
         _, _, model = self._settings()

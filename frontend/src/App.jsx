@@ -140,7 +140,7 @@ export default function App() {
   return (
     <div className="page">
       <main className="card">
-        <h1>Crop Advisor</h1>
+        <h1>AgroMind AI</h1>
         <p className="subtitle">Enter soil and climate values to get one recommended crop.</p>
 
         <section className="uploadPanel">

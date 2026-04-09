@@ -24,13 +24,15 @@ class HealthResponse(BaseModel):
 
 
 class ExtractedValues(BaseModel):
-    N: float | None = Field(default=None, ge=0, le=300)
-    P: float | None = Field(default=None, ge=0, le=300)
-    K: float | None = Field(default=None, ge=0, le=300)
-    temperature: float | None = Field(default=None, ge=0, le=60)
+    """Loose bounds for vision extraction; `/predict` uses stricter PredictionRequest."""
+
+    N: float | None = Field(default=None, ge=0, le=5000)
+    P: float | None = Field(default=None, ge=0, le=5000)
+    K: float | None = Field(default=None, ge=0, le=5000)
+    temperature: float | None = Field(default=None, ge=-50, le=80)
     humidity: float | None = Field(default=None, ge=0, le=100)
     ph: float | None = Field(default=None, ge=0, le=14)
-    rainfall: float | None = Field(default=None, ge=0, le=500)
+    rainfall: float | None = Field(default=None, ge=0, le=20000)
 
 
 class ReportExtractionResponse(BaseModel):
